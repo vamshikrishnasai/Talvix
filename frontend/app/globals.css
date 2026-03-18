@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #2563eb;
+  --color-brand-indigo: #4f46e5;
+  --color-brand-violet: #7c3aed;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-sidebar-bg: var(--sidebar-bg);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-indigo: var(--accent-indigo);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+}
+
+/* ─── LIGHT MODE ─── */
+:root {
+  --background: #f5f5f7;
+  --foreground: #1a1a1a;
+  --card-bg: #ffffff;
+  --card-border: #e8e8ec;
+  --sidebar-bg: #ffffff;
+  --sidebar-border: #e8e8ec;
+  --accent-blue: #2563eb;
+  --accent-indigo: #4f46e5;
+  --text-primary: #111111;
+  --text-secondary: #555560;
+  --text-muted: #9999a8;
+  --surface-hover: #f0f0f5;
+}
+
+/* ─── TAILWIND DARK MODE OVERRIDES ─── */
+/* Ensure legacy Tailwind dark:bg-slate-* classes are visible in dark theme */
+[data-theme="dark"] .dark\:bg-slate-900,
+[data-theme="dark"] .dark\:bg-slate-800,
+[data-theme="dark"] .dark\:bg-slate-900\/50,
+[data-theme="dark"] .dark\:bg-slate-900\/40,
+[data-theme="dark"] .dark\:bg-slate-900\/30,
+[data-theme="dark"] .dark\:bg-slate-800\/40,
+[data-theme="dark"] .dark\:bg-slate-800\/50 {
+  background-color: var(--surface-hover) !important;
+}
+
+[data-theme="dark"] .dark\:hover\:bg-slate-900:hover,
+[data-theme="dark"] .dark\:hover\:bg-slate-800:hover {
+  background-color: #252530 !important;
+}
+
+[data-theme="dark"] .dark\:border-slate-800,
+[data-theme="dark"] .dark\:border-slate-700 {
+  border-color: var(--card-border) !important;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+  color: var(--text-primary);
+  background-color: var(--background);
+}
+
+
+/* ─── DARK MODE ─── */
+[data-theme="dark"] {
+  --background: #0e0e12;
+  --foreground: #e8e8f0;
+  --card-bg: #16161c;
+  --card-border: #24242e;
+  --sidebar-bg: #111116;
+  --sidebar-border: #20202a;
+  --accent-blue: #4d8ef7;
+  --accent-indigo: #7b78f8;
+  --text-primary: #e8e8f0;
+  --text-secondary: #9898b0;
+  --text-muted: #5c5c72;
+  --surface-hover: #1e1e28;
+}
+
+/* ─── BASE ─── */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-jakarta), var(--font-inter), system-ui, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.25s ease, color 0.25s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-outfit), var(--font-jakarta), sans-serif;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+/* ─── GRADIENT ─── */
+.talvix-gradient {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-indigo) 100%);
+}
+
+.talvix-gradient-text {
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-indigo));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── CARD ─── */
+.talvix-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 1.25rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.talvix-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .talvix-card:hover {
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.5);
+  border-color: var(--accent-blue);
+  border-opacity: 0.15;
+}
+
+/* ─── PILL TAGS ─── */
+.pill-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.4;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.pill-tag:hover {
+  transform: scale(1.05);
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.4s ease both;
+}
+
+/* ─── SHADOWS ─── */
+.shadow-premium {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 8px 24px -4px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .shadow-premium {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 8px 24px -4px rgba(0, 0, 0, 0.5);
+}
+
+.shadow-3xl {
+  box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .shadow-3xl {
+  box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.7);
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
