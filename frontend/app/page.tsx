@@ -63,7 +63,7 @@ export default function LandingPage() {
         }}>
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center">
-            <img src="/talvix_logo_.png" alt="Talvix" className="h-16 w-auto" />
+            <img src="/talvix_logo.png" alt="Talvix" className="h-9 w-auto" />
           </div>
           <div className="flex items-center gap-4">
             <ThemeToggle />
@@ -354,7 +354,7 @@ export default function LandingPage() {
       <footer className="py-12 px-6" style={{ borderTop: '1px solid var(--card-border)' }}>
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center">
-            <img src="/talvix_logo_.png" alt="Talvix" className="h-16 w-auto" />
+            <img src="/talvix_logo.png" alt="Talvix" className="h-9 w-auto" />
           </div>
           <p className="text-sm" style={{ color: 'var(--text-muted)' }}>© 2026 Talvix Intelligence. All rights reserved.</p>
           <div className="flex items-center gap-6">

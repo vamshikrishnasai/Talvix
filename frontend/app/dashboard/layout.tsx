@@ -85,16 +85,16 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 }}
             >
                 {/* Logo */}
-           <div
-  className={`h-24 flex items-center justify-center shrink-0 ${isCollapsed ? 'px-1' : 'px-2'}`}
-  style={{ borderBottom: '1px solid var(--sidebar-border)' }}
->
-  <img
-    src="/talvix_logo_.png"
-    alt="Talvix"
-    className={`w-auto object-contain ${isCollapsed ? 'h-16' : 'h-22'}`}
-  />
-</div>
+          <div
+            className={`h-16 flex items-center justify-center shrink-0 ${isCollapsed ? 'px-1' : 'px-4'}`}
+            style={{ borderBottom: '1px solid var(--sidebar-border)' }}
+          >
+            <img
+              src="/talvix_logo.png"
+              alt="Talvix"
+              className={`w-auto object-contain ${isCollapsed ? 'h-8' : 'h-10'}`}
+            />
+          </div>
 
                 {/* Nav Items */}
                 <div className="flex-1 overflow-y-auto py-4 px-2 no-scrollbar space-y-0.5">

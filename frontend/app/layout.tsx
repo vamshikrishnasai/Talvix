@@ -12,8 +12,8 @@ export const metadata: Metadata = {
   title: "Talvix — Turn Skills into Careers",
   description: "Turn Skills into Careers. Accelerate your career with AI-powered resume analysis, skill gap mapping, JD synergy, and automated roadmaps.",
   icons: {
-    icon: '/talvix_logo_.png',
-    apple: '/talvix_logo_.png',
+    icon: '/talvix_logo.png',
+    apple: '/talvix_logo.png',
   },
 };
 

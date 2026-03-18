@@ -148,7 +148,7 @@ export default function OnboardingPage() {
 
             {/* ── Logo ── */}
             <div className="flex justify-center mb-10">
-                <img src="/talvix_logo_.png" alt="Talvix" className="h-14 w-auto" />
+                <img src="/talvix_logo.png" alt="Talvix" className="h-14 w-auto" />
             </div>
 
             {/* ── Progress Stepper ── */}

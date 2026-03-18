@@ -53,7 +53,7 @@ export default function LoginPage() {
                 </div>
                 <div className="relative z-10">
                     <div className="flex items-center">
-                        <img src="/talvix_logo_.png" alt="Talvix" className="h-28 w-auto brightness-0 invert drop-shadow-xl" />
+                        <img src="/talvix_logo.png" alt="Talvix" className="h-16 w-auto brightness-0 invert drop-shadow-lg" />
                     </div>
                 </div>
                 <div className="relative z-10 space-y-6">
@@ -104,7 +104,7 @@ export default function LoginPage() {
                 >
                     {/* Mobile logo */}
                     <div className="lg:hidden flex items-center justify-center mb-8">
-                        <img src="/talvix_logo_.png" alt="Talvix" className="h-16 w-auto" />
+                        <img src="/talvix_logo.png" alt="Talvix" className="h-10 w-auto" />
                     </div>
 
                     <div>

@@ -58,7 +58,7 @@ export default function SignupPage() {
                 </div>
                 <div className="relative z-10">
                     <div className="flex items-center">
-                        <img src="/talvix_logo_.png" alt="Talvix" className="h-28 w-auto brightness-0 invert drop-shadow-xl" />
+                        <img src="/talvix_logo.png" alt="Talvix" className="h-16 w-auto brightness-0 invert drop-shadow-lg" />
                     </div>
                 </div>
                 <div className="relative z-10 space-y-8">
@@ -106,7 +106,7 @@ export default function SignupPage() {
                     className="w-full max-w-[400px] space-y-8"
                 >
                     <div className="lg:hidden flex items-center justify-center mb-8">
-                        <img src="/talvix_logo_.png" alt="Talvix" className="h-16 w-auto" />
+                        <img src="/talvix_logo.png" alt="Talvix" className="h-10 w-auto" />
                     </div>
 
                     <div>
