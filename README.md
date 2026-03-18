@@ -2,7 +2,7 @@
   <img src="frontend/public/talvix_logo.png" alt="Talvix Logo" width="180"/>
 </p>
 
-<h1 align="center">Talvix</h1>
+
 
 <p align="center">
   <strong>The Intelligence Layer for Modern Career Engineering</strong>
