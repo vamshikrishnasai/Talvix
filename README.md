@@ -1,10 +1,8 @@
 <p align="center">
-  <img src="frontend/public/talvix_logo_.png" alt="Talvix Logo" width="180"/>
+  <img src="frontend/public/talvix_logo_.png" alt="Talvix Logo" width="160"/>
 </p>
 
-<h1 align="center">Talvix</h1>
-
-<p align="center">
+<p align="center" margin="1px">
   <strong>The Ultimate AI-Powered Career Intelligence & Interview Preparation Platform</strong>
 </p>
 
