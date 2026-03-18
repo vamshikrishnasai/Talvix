@@ -1,116 +1,113 @@
-# Talvix: AI-Powered Career Intelligence & Interview Prep Platform
-
 <p align="center">
-  <img src="frontend/public/talvix_logo_.png" alt="Talvix Logo" width="200"/>
+  <img src="frontend/public/talvix_logo_.png" alt="Talvix Logo" width="180"/>
 </p>
 
-Talvix is a cutting-edge, full-stack application designed to accelerate career growth using artificial intelligence. It bridges the gap between a candidate's current skills and their dream roles through deep analysis, personalized roadmaps, and realistic interview simulations.
+<h1 align="center">Talvix</h1>
 
-![Talvix Banner](https://via.placeholder.com/1200x400?text=Talvix+AI+Career+Platform)
-
-## 🚀 Key Features
-
-### 1. Conversational AI Mock Interviews
-- **Real-time Dialogue**: Engage in back-and-forth technical and behavioral interviews with a Mistral-powered AI.
-- **Voice Capabilities**: Integrated **Speech-to-Text** (STT) for natural answering and **Text-to-Speech** (TTS) for an immersive interviewer experience.
-- **Deep Evaluation**: Receive a readiness score and "Compare with Better Answer" insights for every turn.
-
-### 2. Intelligent Resume & JD Analysis
-- **NLP Resume Parser**: Extracts skills, experience, and education using spaCy and NLTK.
-- **Skill Gap Discovery**: Automatically identifies missing skills required for your target role and company.
-- **Match Scoring**: Real-time compatibility analysis using TF-IDF and Cosine Similarity.
-
-### 3. Dynamic Learning Roadmaps
-- **Week-by-Week Strategy**: Generates a personalized study plan based on your unique skill gaps.
-- **Curated Resources**: Direct links to YouTube, documentation, and practice problems (LeetCode/HackerRank).
-
-### 4. Market Intelligence & Performance Tracking
-- **Live Job Market Insights**: Data-driven analysis of role demand, recession risks, and salary trends.
-- **Performance Dashboard**: Beautifully rendered Recharts visualizations of your knowledge progression and assessment scores.
-
-### 5. AI Career Coach
-- **24/7 Mentorship**: A dedicated AI mentor to answer career-related queries, provide strategic insights, and guide your preparation.
-
-## 🛠️ Tech Stack
-
-- **Frontend**: 
-    - [Next.js 15+](https://nextjs.org/) (App Router, Turbopack)
-    - [TypeScript](https://www.typescriptlang.org/)
-    - [Tailwind CSS](https://tailwindcss.com/)
-    - [Framer Motion](https://www.framer.com/motion/) (Premium Animations)
-    - [Recharts](https://recharts.org/) (Data Visualization)
-    - [Lucide React](https://lucide.dev/) (Iconography)
-
-- **Backend**:
-    - [FastAPI](https://fastapi.tiangolo.com/) (High-performance Python framework)
-    - [PostgreSQL](https://www.postgresql.org/) with [SQLAlchemy](https://www.sqlalchemy.org/) ORM
-    - [Mistral AI](https://mistral.ai/) (Primary LLM) & [Google Gemini](https://deepmind.google/technologies/gemini/) (Fallback LLM)
-    - [spaCy](https://spacy.io/) & [NLTK](https://www.nltk.org/) (Natural Language Processing)
-    - [Scikit-learn](https://scikit-learn.org/) (Predictive Analysis & ML)
-
-## 📦 Installation & Setup
-
-### Prerequisites
-- Python 3.10+
-- Node.js 20+
-- PostgreSQL instance
+<p align="center">
+  <strong>The Ultimate AI-Powered Career Intelligence & Interview Preparation Platform</strong>
+</p>
 
 ---
 
-### Phase 1: Backend Setup
-1. **Navigate to backend**: 
+## 📖 About Talvix
+Talvix is an advanced, full-stack application designed to streamline the transition from learning to earning. By leveraging state-of-the-art AI, Talvix identifies your professional skill gaps, generates personalized learning roadmaps, and provides a safe environment for high-stakes interview practice.
+
+---
+
+## 🎤 Main Features
+
+### 1. Conversational AI Mock Interviews
+Practice in a realistic, high-pressure environment with our **AI Recruiter**.
+- **Natural Dialogue**: Powered by Mistral AI, the interviewer listens, reacts, and asks follow-up questions based on your specific answers.
+- **Voice-Enabled**: Fully integrated **Speech-to-Text** and **Text-to-Speech** for a hands-free, immersive experience.
+- **Turn-by-Turn Feedback**: Immediate comparisons with "Ideal Answers" and performance scoring for every response.
+
+### 2. Live Job Market Analysis
+Stay ahead of the competition with real-time industry data.
+- **Economic Indicators**: Tracks role demand, salary benchmarks, and recession risks.
+- **Role-Speific Insights**: Deep dives into specific technologies and companies to help you target the right opportunities.
+- **Visual Analytics**: Interactive Recharts dashboards showing growth trends and market readiness.
+
+### 3. AI Resume & Skill Assessment
+Stop guessing about your profile's strength.
+- **Automated Resume Audit**: NLP-driven extraction of skills and experience to find precisely what's missing.
+- **Interactive Skill Tests**: Validate your expertise with AI-generated assessments and track your scores over time.
+- **JD Matching**: Upload a job description to see an instant "Compatibility Score" between your profile and the role requirements.
+
+### 4. Smart Roadmap Generation
+- **Bridge the Gap**: Automatically generates a 4-week intensive study plan based on your identified missing skills.
+- **Direct Resources**: No more searching—get curated links to official docs, top YouTube tutorials, and LeetCode problems.
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **Framework**: Next.js 15+ (App Router, Turbopack)
+- **Styling**: Tailwind CSS & Framer Motion (Premium UI Animations)
+- **Data Viz**: Recharts (Modern Dashboard Analytics)
+
+### Backend
+- **Framework**: FastAPI (High-performance Python)
+- **Database**: PostgreSQL with SQLAlchemy ORM
+- **AI Engines**: Mistral AI (Primary) & Google Gemini (Fallback)
+- **NLP**: spaCy, NLTK, and Scikit-learn
+
+---
+
+## 🚀 Step-by-Step Setup Guide
+
+### 1. Repository Setup
+Clone the project and enter the directory:
+```bash
+git clone https://github.com/vamshikrishnasai/Talvix.git
+cd Talvix
+```
+
+### 2. Backend Initialization
+1. Navigate to the backend folder:
    ```bash
    cd backend
    ```
-2. **Setup Virtual Environment**:
+2. Create and activate a virtual environment:
    ```bash
    python -m venv venv
-   source venv/scripts/activate  # On Windows: venv\Scripts\activate
+   # On Windows:
+   venv\Scripts\activate
    ```
-3. **Install Dependencies**:
+3. Install required libraries:
    ```bash
    pip install -r requirements.txt
    python -m spacy download en_core_web_sm
    ```
-4. **Environment Variables**:
-   Create a `.env` file in `/backend`:
-   ```env
-   DATABASE_URL=postgresql://user:password@localhost/talvix
-   SECRET_KEY=your_super_secret_key
-   MISTRAL_API_KEY=your_mistral_key
-   GOOGLE_API_KEY=your_gemini_key
+4. Configuration: Create a `.env` file and add your API keys (Mistral, Gemini) and DB URL.
+5. Initialize the database:
+   ```bash
+   python -m app.init_db
    ```
-5. **Start Dev Server**:
+6. Run the API:
    ```bash
    uvicorn app.main:app --reload
    ```
 
----
-
-### Phase 2: Frontend Setup
-1. **Navigate to frontend**:
+### 3. Frontend Initialization
+1. In a new terminal, navigate to the frontend:
    ```bash
    cd frontend
    ```
-2. **Install Packages**:
+2. Install dependencies:
    ```bash
    npm install
    ```
-3. **Launch Application**:
+3. Launch the web app:
    ```bash
    npm run dev
    ```
-   Open [http://localhost:3000](http://localhost:3000) to view the dashboard.
 
-## 📈 Database Migrations
-The project uses SQLAlchemy for DB management. To initialize the schema:
-```bash
-python -m app.init_db
-```
+---
 
-## 📄 License
-Distributed under the MIT License. See `LICENSE` for more information.
+## 📊 Project Preview
+Enjoy a premium, dark-themed experience designed for focus and productivity. Talvix is built to be your personal career co-pilot.
 
-## 🤝 Project Links
-- **Repo**: [https://github.com/vamshikrishnasai/Talvix.git](https://github.com/vamshikrishnasai/Talvix.git)
-- **Developer**: [Vamshi Krishna Sai](https://github.com/vamshikrishnasai)
+**Developed by**: [Vamshi Krishna Sai](https://github.com/vamshikrishnasai)
