@@ -1,5 +1,9 @@
 # Talvix: AI-Powered Career Intelligence & Interview Prep Platform
 
+<p align="center">
+  <img src="frontend/public/talvix_logo_.png" alt="Talvix Logo" width="200"/>
+</p>
+
 Talvix is a cutting-edge, full-stack application designed to accelerate career growth using artificial intelligence. It bridges the gap between a candidate's current skills and their dream roles through deep analysis, personalized roadmaps, and realistic interview simulations.
 
 ![Talvix Banner](https://via.placeholder.com/1200x400?text=Talvix+AI+Career+Platform)
