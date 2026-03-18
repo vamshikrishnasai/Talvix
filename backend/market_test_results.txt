@@ -1,0 +1,7 @@
+--- Testing Market Service ---
+Total Jobs: 742
+Avg Salary: 100.63
+Top Skills: [{'skill': 'PYTHON', 'count': 392}, {'skill': 'EXCEL', 'count': 388}, {'skill': 'AWS', 'count': 176}]
+Prediction Trend: [{'quarter': 'Q3 2026', 'predicted_demand': 936.0}, {'quarter': 'Q4 2026', 'predicted_demand': 986.0}]
+
+Filters Found: 8 roles, 38 locations

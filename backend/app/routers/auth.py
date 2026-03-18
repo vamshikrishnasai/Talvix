@@ -1,10 +1,11 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, UploadFile, File
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 from datetime import timedelta
 import jwt
 import os
+import base64
 from dotenv import load_dotenv
 
 from .. import models, schemas, utils, database
@@ -85,19 +86,47 @@ def patch_user_me(
     db: Session = Depends(database.get_db),
     current_user: models.User = Depends(get_current_user)
 ):
-    if user_update.full_name is not None:
-        current_user.full_name = user_update.full_name
-    if user_update.target_role is not None:
-        current_user.target_role = user_update.target_role
+    updatable_fields = [
+        'full_name', 'target_role', 'prep_duration', 'user_type',
+        'photo_url', 'linkedin_url', 'github_url', 'leetcode_url',
+        'hackerrank_url', 'codechef_url', 'medium_url', 'stackoverflow_url'
+    ]
+    for field in updatable_fields:
+        val = getattr(user_update, field, None)
+        if val is not None:
+            setattr(current_user, field, val)
+
+    # Handle target_company separately (reset cache if changed)
     if user_update.target_company is not None:
         if current_user.target_company != user_update.target_company:
-            current_user.target_company_info = None # Reset cache
+            current_user.target_company_info = None
         current_user.target_company = user_update.target_company
-    if user_update.prep_duration is not None:
-        current_user.prep_duration = user_update.prep_duration
-    if user_update.user_type is not None:
-        current_user.user_type = user_update.user_type
-    
+
     db.commit()
     db.refresh(current_user)
     return current_user
+
+
+@router.post("/upload-photo")
+async def upload_photo(
+    file: UploadFile = File(...),
+    db: Session = Depends(database.get_db),
+    current_user: models.User = Depends(get_current_user)
+):
+    """Upload a profile photo. Stores as base64 data URL (no external storage needed)."""
+    if not file.content_type.startswith('image/'):
+        raise HTTPException(status_code=400, detail="File must be an image")
+
+    # Limit to 5MB
+    contents = await file.read()
+    if len(contents) > 5 * 1024 * 1024:
+        raise HTTPException(status_code=400, detail="Image must be under 5MB")
+
+    # Encode as data URL
+    b64 = base64.b64encode(contents).decode('utf-8')
+    data_url = f"data:{file.content_type};base64,{b64}"
+
+    current_user.photo_url = data_url
+    db.commit()
+    db.refresh(current_user)
+    return {"photo_url": data_url, "message": "Photo uploaded successfully"}

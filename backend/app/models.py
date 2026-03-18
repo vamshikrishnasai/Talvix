@@ -25,6 +25,14 @@ class User(Base):
     target_company_info = Column(JSON, nullable=True) # Cached company data
     interests = Column(JSON, nullable=True) # List of interests
     preferred_domains = Column(JSON, nullable=True) # e.g. ["Web", "ML"]
+    photo_url = Column(String, nullable=True)
+    linkedin_url = Column(String, nullable=True)
+    github_url = Column(String, nullable=True)
+    leetcode_url = Column(String, nullable=True)
+    hackerrank_url = Column(String, nullable=True)
+    codechef_url = Column(String, nullable=True)
+    medium_url = Column(String, nullable=True)
+    stackoverflow_url = Column(String, nullable=True)
 
     resumes = relationship("Resume", back_populates="owner")
     test_results = relationship("TestResult", back_populates="user")

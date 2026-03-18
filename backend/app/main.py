@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .routers import auth, resume, jd, assessment, roadmap, analytics, onboarding, career_coach, portfolio, interview, search
+from .routers import auth, resume, jd, assessment, roadmap, analytics, onboarding, career_coach, portfolio, interview, search, market, social
 from .database import engine, Base
 from . import models
 
@@ -32,3 +32,5 @@ app.include_router(career_coach.router, prefix="/api/coach", tags=["coach"])
 app.include_router(portfolio.router, prefix="/api/portfolio", tags=["portfolio"])
 app.include_router(interview.router, prefix="/api/interview", tags=["interview"])
 app.include_router(search.router, prefix="/api/search", tags=["search"])
+app.include_router(market.router, prefix="/api/market", tags=["market"])
+app.include_router(social.router, prefix="/api/social", tags=["social"])

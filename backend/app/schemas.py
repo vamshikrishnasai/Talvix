@@ -15,6 +15,14 @@ class UserUpdate(BaseModel):
     target_company: Optional[str] = None
     prep_duration: Optional[int] = None
     user_type: Optional[str] = None
+    photo_url: Optional[str] = None
+    linkedin_url: Optional[str] = None
+    github_url: Optional[str] = None
+    leetcode_url: Optional[str] = None
+    hackerrank_url: Optional[str] = None
+    codechef_url: Optional[str] = None
+    medium_url: Optional[str] = None
+    stackoverflow_url: Optional[str] = None
 
 class User(UserBase):
     id: int
@@ -27,6 +35,14 @@ class User(UserBase):
     knowledge_score: float = 0.0
     streak_count: int = 0
     target_company_info: Optional[Dict[str, Any]] = None
+    photo_url: Optional[str] = None
+    linkedin_url: Optional[str] = None
+    github_url: Optional[str] = None
+    leetcode_url: Optional[str] = None
+    hackerrank_url: Optional[str] = None
+    codechef_url: Optional[str] = None
+    medium_url: Optional[str] = None
+    stackoverflow_url: Optional[str] = None
     class Config:
         from_attributes = True
 

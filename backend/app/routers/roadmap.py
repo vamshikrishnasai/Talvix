@@ -37,6 +37,14 @@ async def generate_new_roadmap(
         skills = resume.extracted_skills or []
         gaps = resume.missing_skills or []
 
+    # Fetch Market Insights for context
+    from ..services.market_service import market_service
+    market_data = market_service.get_market_insights(role=current_user.target_role or "All")
+    market_context = ""
+    if "error" not in market_data:
+        top_skills = [s['skill'] for s in market_data.get('top_skills', [])[:3]]
+        market_context = f"Top demanded skills in the market for this role are: {', '.join(top_skills)}."
+
     # Dynamic generation based on current user state
     roadmap_items = await ai_service.generate_roadmap_dynamic(
         role=current_user.target_role or "Software Developer",
@@ -44,10 +52,11 @@ async def generate_new_roadmap(
         user_score=current_user.knowledge_score,
         prep_duration_weeks=current_user.prep_duration or 4,
         skills=skills,
-        gaps=gaps
+        gaps=gaps,
+        market_context=market_context
     )
     
-    # Clear old items
+    # Clear old items to ensure the roadmap reflects the NEW role/company
     db.query(models.RoadmapModule).filter(models.RoadmapModule.user_id == current_user.id).delete()
     
     if isinstance(roadmap_items, list):
@@ -56,7 +65,7 @@ async def generate_new_roadmap(
                 user_id=current_user.id,
                 title=item.get("title", f"Module {i+1}"),
                 description=item.get("description", ""),
-                resources=item.get("description", ""), # Backward compatibility or primary summary
+                resources=item.get("description", ""),
                 resource_links=item.get("resource_links", []),
                 order=i+1,
                 status="pending"
@@ -64,7 +73,7 @@ async def generate_new_roadmap(
             db.add(db_item)
     
     db.commit()
-    return {"message": "Roadmap re-synthesized successfully."}
+    return {"message": f"Roadmap for {current_user.target_role} at {current_user.target_company} synthesized successfully."}
 
 @router.post("/complete-module/{module_id}")
 async def complete_module(

@@ -62,10 +62,20 @@ async def process_survey(
     db.commit()
     db.refresh(current_user)
     
+    db.commit()
+    db.refresh(current_user)
+    
+    # Re-trigger roadmap generation to reflect NEW role/company immediately
+    try:
+        from .roadmap import generate_new_roadmap
+        await generate_new_roadmap(db, current_user)
+    except Exception as e:
+        print(f"ONBOARDING_ROADMAP_GEN_ERROR: {e}")
+    
     return {
         "score": final_score,
         "user_type": current_user.user_type,
-        "message": "Onboarding successful. Mission path synthesized."
+        "message": f"Mission path for {current_user.target_role} at {current_user.target_company} synthesized."
     }
 
 @router.get("/status")

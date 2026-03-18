@@ -39,13 +39,24 @@ def perform_skill_gap_analysis(resume_skills: list, jd_skills: list):
 
 @router.post("/analyze", response_model=dict)
 async def analyze_synergy(
-    request: dict, # {resume_id: int, jd_text: str, company: str}
+    request: dict, # {resume_id: int, jd_text: str, jd_url: str, company: str}
     db: Session = Depends(database.get_db),
     current_user: models.User = Depends(auth.get_current_user)
 ):
     resume_id = request.get("resume_id")
     jd_text = request.get("jd_text")
+    jd_url = request.get("jd_url")
     company = request.get("company", "Generic Enterprise")
+    
+    if jd_url and not jd_text:
+        from .utils_scraping import scrape_url_text
+        scraped_text = scrape_url_text(jd_url)
+        if not scraped_text:
+            raise HTTPException(status_code=400, detail="Could not extract text from the provided URL")
+        jd_text = scraped_text[:10000] # Cap length to avoid massive payloads
+        
+    if not jd_text:
+        raise HTTPException(status_code=400, detail="Job description text or valid URL is required")
     
     resume = db.query(models.Resume).filter(models.Resume.id == resume_id, models.Resume.user_id == current_user.id).first()
     if not resume:

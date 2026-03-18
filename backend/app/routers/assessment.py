@@ -12,22 +12,26 @@ async def get_skill_assessment(
     db: Session = Depends(database.get_db),
     current_user: models.User = Depends(auth.get_current_user)
 ):
+    # Fetch latest resume for skill context
     resume = db.query(models.Resume).filter(models.Resume.user_id == current_user.id).order_by(models.Resume.uploaded_at.desc()).first()
-    if not resume:
-        print(f"DEBUG: No resume found for user {current_user.email}")
-        return []
     
-    print(f"DEBUG: Generating assessment for {current_user.email} (Skills: {resume.extracted_skills})")
+    skills_context = []
+    if resume and resume.extracted_skills:
+        skills_context = resume.extracted_skills
+    else:
+        # Fallback to target role if no resume exists
+        skills_context = [current_user.target_role or "Software Engineering", "Problem Solving"]
+
+    print(f"DEBUG: Generating profile-based assessment for {current_user.email} using skills: {skills_context}")
     
-    skills_to_test = resume.extracted_skills[:5] if resume.extracted_skills else ["Software Engineering", "Logic", "Coding"]
-    quiz = await ai_service.generate_resume_skill_test(skills_to_test)
+    # Generate 10-15 scenario-based questions
+    quiz = await ai_service.generate_resume_skill_test(skills_context[:8])
     
     if not quiz:
-        print(f"DEBUG: AI failed to generate quiz for {current_user.email}. Using hardcoded fallback.")
-        # Minimal hardcoded fallback to ensure questions.length > 0
+        # Emergency fallback
         quiz = [
-            {"question": "Which of these is fundamental in software development?", "options": ["Data Structures", "Coffee", "Social Media", "Gaming"], "correct_answer_index": 0},
-            {"question": "What does JSON stand for?", "options": ["JavaScript Object Notation", "Java Sequential Objects", "Just Some Old Note", "Joined Script Objects"], "correct_answer_index": 0}
+            {"question": "How do you ensure code quality in a large project?", "options": ["Unit Testing", "Ignoring Errors", "Deleting Code", "Manual Checks Only"], "correct_answer_index": 0},
+            {"question": f"Which of these is most important for a {current_user.target_role or 'developer'}?", "options": ["Clear Logic", "Fast Typing", "Gaming Skills", "Social Media Presence"], "correct_answer_index": 0}
         ]
         
     return quiz

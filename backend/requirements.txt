@@ -19,3 +19,5 @@ jinja2
 python-jose[cryptography]
 google-generativeai
 google-genai
+beautifulsoup4
+requests
