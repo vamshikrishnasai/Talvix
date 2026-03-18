@@ -8,6 +8,22 @@ backend/*.db
 backend/*.log
 backend/ai_response_cache.json
 
+# Test & Junk Files (Ignore scripts and temp data)
+backend/test_*.py
+backend/check_*.py
+backend/diag_*.py
+backend/list_*.py
+backend/verify_*.py
+backend/fix_*.py
+backend/db_*.py
+backend/log_*.py
+backend/wild_fix.py
+backend/*.pdf
+backend/*.txt
+!backend/requirements.txt
+backend/*.bat
+
+
 # Node.js
 frontend/node_modules/
 frontend/.next/
@@ -21,3 +37,4 @@ frontend/*.log
 Thumbs.db
 *.swp
 *.bak
+
