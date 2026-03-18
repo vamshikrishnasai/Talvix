@@ -1,6 +1,6 @@
 import google.generativeai as genai
 
-KEY = "AIzaSyDCuITa6l1jW38_8LB2IEljYMKbLvW7RyE"
+KEY = ""
 
 def test():
     try:
