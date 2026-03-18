@@ -1,19 +1,13 @@
-<p align="center">
-  <img src="frontend/public/talvix_logo.png" alt="Talvix Logo" width="180"/>
+<p align="left">
+  <img src="frontend/public/talvix_logo.png" alt="Talvix Logo" width="120"/>
 </p>
 
 
 
-<p align="center">
+<p align="center up">
   <strong>The Intelligence Layer for Modern Career Engineering</strong>
 </p>
 
-<p align="center">
-  <a href="#-marketing-vision">Marketing Vision</a> •
-  <a href="#-technical-architecture">Technical Architecture</a> •
-  <a href="#-recruiting-perspective">Recruiting Highlights</a> •
-  <a href="#-quick-start">Quick Start</a>
-</p>
 
 ---
 
