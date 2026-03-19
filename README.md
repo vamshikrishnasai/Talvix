@@ -7,8 +7,6 @@
 <p align="center up">
   <strong>The Intelligence Layer for Modern Career Engineering</strong>
 </p>
-
-
 ---
 
 ## 🚀 Vision
