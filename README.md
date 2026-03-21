@@ -2,12 +2,10 @@
   <img src="frontend/public/talvix_logo.png" alt="Talvix Logo" width="120"/>
 </p>
 
-
-
 <p align="center up">
   <strong>The Intelligence Layer for Modern Career Engineering</strong>
 </p>
----
+
 
 ## 🚀 Vision
 Talvix is an AI-native career intelligence ecosystem designed to bridge the gap between academic learning and industry excellence. By integrating real-time market data with advanced LLM-driven diagnostics, Talvix provides a data-backed roadmap for professional growth.
