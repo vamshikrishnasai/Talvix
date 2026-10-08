@@ -25,7 +25,7 @@ Talvix transforms the career search from a guessing game into a precise, enginee
 Developed with a focus on scalability, performance, and modern UI/UX principles.
 
 ### Core Stack
-- **Frontend**: Next.js 15+ (App Router, Turbopack) leveraging **Tailwind CSS** for design and **Framer Motion** for premium interactive feedback.
+- **Frontend**: React.js leveraging **Tailwind CSS** for design and **Framer Motion** for premium interactive feedback.
 - **Backend**: High-concurrency **FastAPI** (Python 3.10+) utilizing **SQLAlchemy** for ORM and **PostgreSQL** for persistence.
 - **AI Services**: Multi-LLM strategy using **Mistral AI** as the primary engine with **Google Gemini** for fallback resilience.
 - **Data Intelligence**: Specialized NLP pipelines using **spaCy** and **NLTK** for automated resume parsing and sentiment analysis.
